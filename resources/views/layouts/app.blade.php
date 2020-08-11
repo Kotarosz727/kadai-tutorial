@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>@yield('title')</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -28,7 +28,7 @@
                     {{ config('app.name', 'Laravel') }}
                 </a>
                 <div class="search" style="margin-left:90px">
-                    <form action="/posts/" method="post">
+                    <form action="/search" method="POST">
                     @csrf
                         <input type="text" name="search" style="border-radius:16px; width:200px" placeholder=" 掲示板内を検索">
                         <button type="submit" class="btn btn-danger" style="border-radius:10px;font-size:13px;padding: 2px 10px 2px;}">検索</button>
@@ -60,7 +60,7 @@
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                    {{ Auth::user()->email }} <span class="caret"></span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
