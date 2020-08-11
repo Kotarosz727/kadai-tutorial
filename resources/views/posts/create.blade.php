@@ -2,6 +2,10 @@
 
 @section('title', '掲示板　新規作成')
 
+@section('addcss')
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+@endsection
+
 @section('content')
 <h4>投稿</h4>
 <div class="col-md-8">
@@ -12,7 +16,7 @@
                 <label for="title" class="col-md-4 col-form-label text-md-right">タイトル</label>
                 
                 <div class="col-md-6">
-                    <input name='title' type="text"　required>
+                    <input name='title' type="text"　required style="width: 200%;">
                 </div>
 
             </div>
@@ -20,9 +24,9 @@
             <div class="form-group row">
                 <label for="category-check" class="col-md-4 col-form-label text-md-right">カテゴリー<br><small>複数選択可能</small></label>
 
-                <div class="col-md-6">
+                <div class="col-md-6 category-line">
                     @foreach($categories as $category)
-                        <input type="checkbox" name="category[]" value="{{ $category->cate_id }}">{{ $category->body }}
+                        <input type="checkbox" name="category[]" value="{{ $category->cate_id }}"> {{ $category->body }}
                     @endforeach
                 </div>
             </div>

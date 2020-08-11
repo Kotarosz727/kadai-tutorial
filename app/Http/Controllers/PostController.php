@@ -25,14 +25,8 @@ class PostController extends Controller
      */
     public function index(Request $req)
     {
-        //検索フォームよりPOSTされた場合
-        if($req->has('search')){
-            $word = $req->input('search');
-            $lists = $this->post_repository->postWithWord($word);
-        } else {
-            $lists = Post::all();
-        }
-        
+        $lists = Post::orderBy('created_at', 'desc')->get();
+
         return view('posts.index', ['lists' =>$lists]);
     }
 
@@ -46,6 +40,7 @@ class PostController extends Controller
         if(!Auth::check()){
             return redirect('/login')->with('error', 'ログインしてください。');
         }
+
         $categories = Category::all();
         return view('posts.create', ['categories'=>$categories]);   
     }

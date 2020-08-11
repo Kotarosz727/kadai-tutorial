@@ -11,7 +11,7 @@
         <div class="post-item-box">
             <h4>{{ $post->title }}</h4>
             <p>{{ $post->content }}</p>
-            カテゴリー；
+            カテゴリー:
             @foreach($post->category as $cate)
                 {{ $cate->body }}
             @endforeach 

@@ -8,4 +8,6 @@ Route::get('/', function () {
 Route::resource('posts', 'PostController')->except('edit', 'update', 'destory');
 Auth::routes();
 Route::post('/comments', 'CommentController@store');
+Route::post('search', 'SearchController@search');
+
 

@@ -26,11 +26,20 @@ class PostRepository
     }
 
     //検索フォームよりPOSTされた値でクエリを発行
-    public function postWithWord($word){
-        $lists  = DB::table('posts')
-                ->whereRaw('title like ? || content like ?', '%'.$word.'%', '%'.$word.'%')
-                ->get();
-        return $lists;       
+    public function postSearch($word){
+
+        $t1 = DB::table('comments')
+                ->select(DB::raw(" post_id, '' as title, content "))     
+                ->where('content', 'like' ,  "%$word%");
+        
+        $t2 = DB::table('posts')
+                ->select('post_id', 'title', 'content')
+                ->where('content', 'like' ,  "%$word%")
+                ->orWhere('content', 'like', "%$word%");
+        
+        $res = $t1->unionAll($t2)->get();
+
+        return $res;       
     }
 
 }
