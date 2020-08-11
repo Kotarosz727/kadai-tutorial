@@ -1,0 +1,33 @@
+
+.post-item-box {
+    background: #fff;
+    margin-top: .9rem;
+    border: 1px solid #d3d3d3;
+    border-radius: 5px 5px 5px 5px;
+    padding: 5px;
+}
+
+
+.comment-input{
+    margin-top: 30px;
+}
+
+.comment-input .input[type=checkbox]{
+    border-radius: 2px 2px 2px 2px;
+}
+
+.comment-input .btn{
+    margin-left: 10px;
+    font-size: 12px;
+    width: 110px;
+    border-radius: 31px;
+}
+
+.comment-line{
+    background: #fff;
+    margin-top: .9rem;
+    border: 1px solid #d3d3d3;
+    border-radius: 5px 5px 5px 5px;
+    padding: 5px;
+}
+
