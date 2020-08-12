@@ -21,4 +21,4 @@ jobs:
           cd /var/www/kadai-tutorial 
         - name: git pull
           run: |
-            git pull origin master'    
+            git pull origin master    
