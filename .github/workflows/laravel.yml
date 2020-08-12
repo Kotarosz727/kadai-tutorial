@@ -5,7 +5,7 @@ on:
     branches: [ master ]
   pull_request:
     branches: [ master ]
-    
+
 jobs:
   deploy:
     if: github.ref == 'refs/heads/master'
@@ -19,4 +19,4 @@ jobs:
           HOST_NAME: ${{ secrets.HOST_NAME }}
         run: |
           echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
-          ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOST_NAME} 'cd /var/www/kadai-tutorial/ && git pull origin master
+          ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOST_NAME} 'cd /var/www/kadai-tutorial/ && git pull origin master'
