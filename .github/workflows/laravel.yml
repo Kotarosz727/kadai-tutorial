@@ -18,5 +18,6 @@ jobs:
           USER_NAME: ${{ secrets.USER_NAME }}
           HOST_NAME: ${{ secrets.HOST_NAME }}
         run: |
+          mkdir -p ~/.ssh
           echo "$PRIVATE_KEY" > ~/.ssh/action_key && chmod 700 ~/.ssh/action_key
           ssh -o StrictHostKeyChecking=no -i ~/.ssh/action_key ${USER_NAME}@${HOST_NAME} 'cd /var/www/kadai-tutorial/ && git pull origin master'
