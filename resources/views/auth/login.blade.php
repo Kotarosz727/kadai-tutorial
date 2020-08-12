@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'ログイン')
+
 @section('content')
 @if (session('error'))
     <div class="alert alert-danger">
