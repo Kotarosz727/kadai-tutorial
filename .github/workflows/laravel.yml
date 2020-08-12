@@ -21,6 +21,7 @@ jobs:
           cd /var/www/kadai-tutorial
       - name: git setting
         run:
+          git init
           git config --local user.name "kotarosz727"      
           git config --local user.email "kotarosz727@gmail.com"
       - name: git pull
