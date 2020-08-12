@@ -19,6 +19,6 @@ jobs:
           chmod 600 secret_key
           ssh -oStrictHostKeyChecking=no ${USER_NAME}@${HOST_NAME} -i secret_key
           cd /var/www/kadai-tutorial 
-        - name: git pull
-          run: |
-            git pull origin master    
+      - name: git pull
+        run: |
+          git pull origin master    
