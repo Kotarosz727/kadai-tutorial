@@ -19,4 +19,4 @@ jobs:
           HOST_NAME: ${{ secrets.HOST_NAME }}
         run:
           echo "$PRIVATE_KEY" > secret_key && chmod 600 secret_key
-          ssh -o StrictHostKeyChecking=no -i secret_key ${USER_NAME}@${HOST_NAME} 'cd /var/www/kadai-tutorial/ && git pull origin master'
+          ssh -o StrictHostKeyChecking=no ${USER_NAME}@${HOST_NAME} -i secret_key 'cd /var/www/kadai-tutorial/ && git pull origin master'
