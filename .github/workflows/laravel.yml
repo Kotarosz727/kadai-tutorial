@@ -9,6 +9,7 @@ jobs:
     if: github.ref == 'refs/heads/master'
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - name: deploy
         env:
           PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
@@ -17,6 +18,8 @@ jobs:
         run:
           echo "$PRIVATE_KEY" > secret_key
           chmod 600 secret_key
-          ssh -oStrictHostKeyChecking=no ${USER_NAME}@${HOST_NAME} -i secret_key 
+          ssh -oStrictHostKeyChecking=no ${USER_NAME}@${HOST_NAME} -i secret_key
           cd /var/www/kadai-tutorial
-          git pull origin master
+      - name: git pull
+        run:
+          git pull origin master  
